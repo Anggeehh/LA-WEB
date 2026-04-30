@@ -1,0 +1,260 @@
+/* --- ESTILOS GENERALES --- */
+body { 
+    /* REQUISITO: Color de fondo y Fuente externa (Extra) */
+    background-color: rgb(215, 255, 239);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* REQUISITO: Header con ID */
+#especial { 
+    background-color: rgb(5, 43, 117);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 4px solid rgb(33, 122, 180);
+}
+
+main {
+    color: rgb(87, 85, 85);
+    padding: 20px;
+}
+
+/* --- TÍTULOS --- */
+h2 {
+    color: rgb(5, 43, 117); 
+    text-align: center;
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: rgb(33, 122, 180);
+    text-align: center;
+}
+
+/* --- DISEÑO FLEXBOX (LAYOUT) --- */
+.contenedor-productos {
+    /* REQUISITO: Implementación de Flexbox */
+    display: flex;
+    flex-wrap: wrap; /* Para que bajen si no caben */
+    justify-content: center; /* Centrado */
+    gap: 30px; /* Espacio entre artículos */
+}
+
+/* --- TARJETAS DE PRODUCTO (ARTICLE) --- */
+.ficha-producto {
+    background-color: white;
+    
+    /* REQUISITO: Modelo de Cajas (Border, Padding, Margin) */
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 250px; /* Ancho fijo para cada tarjeta */
+    
+    /* REQUISITO EXTRA: Bordes redondeados y Sombra (Layout Complejo) */
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    
+    /* REQUISITO EXTRA: Transición suave para el hover */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* REQUISITO EXTRA: Interactividad (:hover) */
+/* Al pasar el ratón, la tarjeta crece un poco y cambia el borde */
+.ficha-producto:hover {
+    transform: scale(1.05);
+    border-color: rgb(5, 43, 117);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajustes de imágenes dentro de la tarjeta */
+.ficha-producto img {
+    display: block;
+    margin: 0 auto; /* Centrar imagen */
+    max-width: 100%;
+    height: auto;
+}
+
+.ficha-producto ul {
+    list-style-type: square; /* Cambiar puntitos por cuadrados */
+    padding-left: 20px;
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    background-color: rgb(5, 43, 117);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+/* REQUISITO: @media para adaptar a móvil */
+@media (max-width: 600px) {
+    .contenedor-productos {
+        flex-direction: column; /* Poner uno debajo de otro */
+        align-items: center;
+    }
+    
+    .ficha-producto {
+        width: 80%; /* En móvil ocupan casi todo el ancho */
+    }
+    
+    h1 {
+        font-size: 1.5em; /* Título más pequeño en móvil */
+    }
+} 
+
+/* --- MODO ALTERNATIVO (ACTIVADO POR JS) --- */
+.modo-alternativo {
+    background-color: rgb(5, 43, 117); /* Azul oscuro del header */
+    color: white;
+}
+
+/* Ajuste de textos dentro del modo alternativo */
+.modo-alternativo h2,
+.modo-alternativo h3 {
+    color: rgb(215, 255, 239); /* Verde menta del fondo original */
+}
+
+/* Tarjetas en modo alternativo */
+.modo-alternativo .ficha-producto {
+    background-color: rgb(33, 122, 180); /* Azul medio */
+    color: white;
+    border-color: rgb(215, 255, 239);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Hover en modo alternativo */
+.modo-alternativo .ficha-producto:hover {
+    background-color: rgb(5, 43, 117);
+    border-color: white;
+    transform: scale(1.07);
+}
+
+#titulo {
+    font-family: 'Bangers', system-ui; /* Aplicamos la nueva fuente característica */
+    letter-spacing: 2px;               /* Un poco de espacio entre letras */
+    font-size: 3em;                    /* Hacemos el título más grande */
+}
+
+/* --- FILTROS DINÁMICOS --- */
+.contenedor-filtros {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-filtro {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(33, 122, 180);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    /* Feedback visual: Transición fluida de color y tamaño */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background-color: rgb(5, 43, 117);
+    transform: scale(1.05);
+}
+
+/* Transición para ocultar/mostrar secciones de forma fluida */
+section {
+    transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease;
+    max-height: 2000px;
+    opacity: 1;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+/* Clase que aplicará JS para ocultar categorías */
+section.oculto {
+    opacity: 0;
+    transform: scale(0.9);
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.hr-oculto {
+    display: none;
+}
+
+/* Haz que el cursor indique que las tarjetas son clickeables */
+.ficha-producto {
+    cursor: pointer; 
+}
+
+/* --- VENTANA MODAL (FEEDBACK VISUAL AVANZADO) --- */
+.modal {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Comienza invisible para animarlo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-contenido {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
+    color: #333;
+    /* Efecto "pop-up": viene desde abajo suavemente */
+    transform: translateY(-50px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modo-alternativo .modal-contenido {
+    background-color: rgb(33, 122, 180);
+    color: white;
+}
+
+.modal.mostrar .modal-contenido {
+    transform: translateY(0);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px; 
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: rgb(220, 50, 50);
+}
+
+.modal-contenido ul {
+    text-align: left;
+    margin-top: 15px;
+}

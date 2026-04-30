@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTOR DE PRODUCTOS</title> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    
+    {# CORRECCIÓN: Comillas alrededor de url_for para que sea HTML válido #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header id="especial">
+        <h1 id="titulo">TITULO PRINCIPAL</h1>
+    </header>
+    
+    <main>
+        <button id="boton-magico">Cambiar modo</button>
+
+        <div id="filtros" class="contenedor-filtros">
+            <button class="btn-filtro active" data-filtro="todos">Todos</button>
+            <button class="btn-filtro" data-filtro="drogueria">Droguería</button>
+            <button class="btn-filtro" data-filtro="fruteria">Frutería</button>
+            <button class="btn-filtro" data-filtro="bebidas">Bebidas</button>
+        </div>
+
+        {# ===== SECCIÓN DROGUERÍA ===== #}
+        <section data-categoria="drogueria"> 
+            <h2>Droguería</h2>
+            <div class="contenedor-productos">
+                {# CORRECCIÓN: Bucle for para recorrer los productos de la BD #}
+                {% for item in drogueria %}
+                <article class="ficha-producto">
+                    <h3>{{ item.nombre }}</h3>
+                    <a href="#">
+                        {# CORRECCIÓN: url_for para imágenes estáticas #}
+                        <img src="{{ url_for('static', filename='img/' + item.imagen) }}" alt="{{ item.nombre }}" width="200">
+                    </a>
+                    <ul>
+                        <li><strong>Fecha de Caducidad:</strong> {{ item.fecha_caducidad }}</li>
+                        <li><strong>Marca:</strong> {{ item.marca }}</li>
+                        <li><strong>Precio:</strong> {{ item.precio }}</li>
+                        <li><strong>Stock:</strong> {{ item.stock }}</li>
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <hr>
+
+        {# ===== SECCIÓN FRUTERÍA ===== #}
+        <section data-categoria="fruteria">
+            <h2>Frutería</h2>
+            <div class="contenedor-productos">
+                {% for item in fruteria %}
+                <article class="ficha-producto">
+                    <h3>{{ item.nombre }}</h3>
+                    <a href="#">
+                        <img src="{{ url_for('static', filename='img/' + item.imagen) }}" alt="{{ item.nombre }}" width="200">
+                    </a>
+                    <ul>
+                        <li><strong>Fecha de Caducidad:</strong> {{ item.fecha_caducidad }}</li>
+                        <li><strong>Marca:</strong> {{ item.marca }}</li>
+                        <li><strong>Precio:</strong> {{ item.precio }}</li>
+                        <li><strong>Stock:</strong> {{ item.stock }}</li>
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <hr>
+
+        {# ===== SECCIÓN BEBIDAS ===== #}
+        <section data-categoria="bebidas">
+            <h2>Bebidas</h2>
+            <div class="contenedor-productos">
+                {% for item in bebidas %}
+                <article class="ficha-producto">
+                    <h3>{{ item.nombre }}</h3>
+                    <a href="#">
+                        <img src="{{ url_for('static', filename='img/' + item.imagen) }}" alt="{{ item.nombre }}" width="200">
+                    </a>
+                    <ul>
+                        <li><strong>Fecha de Caducidad:</strong> {{ item.fecha_caducidad }}</li>
+                        <li><strong>Marca:</strong> {{ item.marca }}</li>
+                        <li><strong>Precio:</strong> {{ item.precio }}</li>
+                        <li><strong>Stock:</strong> {{ item.stock }}</li>
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-producto" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2 id="modal-titulo">Título Producto</h2>
+            <img id="modal-imagen" src="" alt="Imagen del producto" width="200">
+            <ul id="modal-detalles"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Trabajo realizado por Ángel Piñero, José Ramirez y Jose Carlos Vallejo.</p>
+    </footer>
+
+    {# CORRECCIÓN: url_for para el JS estático #}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
