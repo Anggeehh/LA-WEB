@@ -31,12 +31,12 @@
         <section data-categoria="drogueria"> 
             <h2>Droguería</h2>
             <div class="contenedor-productos">
-                {# CORRECCIÓN: Bucle for para recorrer los productos de la BD #}
+                
                 {% for item in drogueria %}
                 <article class="ficha-producto">
                     <h3>{{ item.nombre }}</h3>
                     <a href="#">
-                        {# CORRECCIÓN: url_for para imágenes estáticas #}
+                        
                         <img src="{{ url_for('static', filename='img/' + item.imagen) }}" alt="{{ item.nombre }}" width="200">
                     </a>
                     <ul>
@@ -110,7 +110,7 @@
         <p>Trabajo realizado por Ángel Piñero, José Ramirez y Jose Carlos Vallejo.</p>
     </footer>
 
-    {# CORRECCIÓN: url_for para el JS estático #}
+    
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
