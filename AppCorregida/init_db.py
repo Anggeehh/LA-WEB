@@ -50,7 +50,7 @@ def inicializar_base_de_datos():
         # --- FRUTERÍA ---
         ("Manzana",        "2026-05-10", "fruteria",  "Frutas del Campo",   "2.99€", "54", "manzana-removebg-preview.png"),
         ("Albaricoque",    "2026-05-05", "fruteria",  "Frutas del Sur",     "3.50€", "20", "albaricoque.png"),
-        ("Pera",           "2026-05-08", "fruteria",  "Frutas Selectas",    "2.75€", "39", "peras.png"),
+        ("Pera",           "2026-05-08", "fruteria",  "Frutas Selectas",    "2.75€", "67", "peras.png"),
 
         # --- BEBIDAS ---
         ("Agua",           "2080-03-07", "bebidas",   "Solán de Cabras",    "0.99€", "200", "agua.png"),
