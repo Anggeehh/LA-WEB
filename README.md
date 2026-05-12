@@ -1,2 +1,2 @@
 # LA-WEB
-La web
+Trabajo de programación ya finalizado y testeado.
