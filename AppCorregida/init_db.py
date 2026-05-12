@@ -46,6 +46,8 @@ def inicializar_base_de_datos():
         ("Lejía", "2027-06-30", "drogueria", "Neutrex", "1.50€", "50", "lejia.png"),
         ("Detergente",     "2027-12-01", "drogueria", "Marsella",  "3.99€", "245", "detergente.png"),
         ("Oxígeno Activo", "2026-09-15", "drogueria", "Ace",       "4.50€", "100", "oxigeno.png"),
+        ("Limpiacristales", "2027-08-19", "drogueria", "3 brujas",       "2.50€", "10", "oxigeno.png"),
+
 
         # --- FRUTERÍA ---
         ("Manzana",        "2026-05-10", "fruteria",  "Frutas del Campo",   "2.99€", "54", "manzana-removebg-preview.png"),
